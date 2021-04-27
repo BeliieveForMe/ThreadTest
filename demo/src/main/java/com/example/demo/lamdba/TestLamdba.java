@@ -2,7 +2,7 @@ package com.example.demo.lamdba;
 
 /*
  * @ClassName: TestLamdba
- * @description: lamdba表达式推到过程
+ * @description: lamdba表达式推导过程
  * @author: BeliieveForMe-GuoDF
  * @Email: 731998663@qq.com
  * @github: https://github.com/BeliieveForMe
@@ -15,7 +15,7 @@ public class TestLamdba {
     static class Love2 implements Ilove {
         @Override
         public void love(int i) {
-            System.out.println("lamdba表达式推到----第"+i+"步");
+            System.out.println("lamdba表达式推导----第"+i+"步");
         }
     }
 
@@ -34,7 +34,7 @@ public class TestLamdba {
         class Love3 implements Ilove {
             @Override
             public void love(int i) {
-                System.out.println("lamdba表达式推到----第"+i+"步");
+                System.out.println("lamdba表达式推导----第"+i+"步");
             }
         }
         Ilove love3 = new Love3();
@@ -44,16 +44,20 @@ public class TestLamdba {
         Ilove love4 = new Ilove() {
             @Override
             public void love(int i) {
-                System.out.println("lamdba表达式推到----第"+i+"步");
+                System.out.println("lamdba表达式推导----第"+i+"步");
             }
         };
         love4.love(4);
 
         //第五步：推导出表达式
         Ilove love5 = (int i)-> {
-                System.out.println("lamdba表达式推到----第"+i+"步");
+                System.out.println("lamdba表达式推导----第"+i+"步");
             };
         love5.love(5);
+
+        //第六步：简化表达式
+        Ilove love6 = (i)-> System.out.println("lamdba表达式推导----第"+i+"步");
+        love6.love(6);
     }
 }
 
@@ -66,6 +70,6 @@ interface Ilove{
 class Love implements Ilove{
     @Override
     public void love(int i) {
-        System.out.println("lamdba表达式推到----第"+i+"步");
+        System.out.println("lamdba表达式推导----第"+i+"步");
     }
 }
